@@ -9,6 +9,7 @@ class BookScraper:
         response = requests.get(self.url)
         try:
             response.raise_for_status()
+            response.encoding = 'utf-8'
         except requests.exceptions.HTTPError as e:
             raise requests.HTTPError(f"HTTP error occurred: {e}")
         
